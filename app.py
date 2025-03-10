@@ -13,7 +13,15 @@ def csv_to_list(file_path):
 
 file_path = "SalesData.csv"  
 data = csv_to_list(file_path)
-print(data)  # Output the list
+
+
+avgs = []
+for row in data[1:]:
+    stores = row[0]
+    sales = list(map(int, row[1:]))
+    avg_sales = sum(sales) / len(sales)
+    avgs.append((stores, avg_sales))
+print(avgs)
 
 
 

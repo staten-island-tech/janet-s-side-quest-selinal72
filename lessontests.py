@@ -33,17 +33,22 @@ for row in data[1:]:  # Skip the first row
         store_name = row[0]  # First column is the store name
         sales = map(int, row[1:])  # Convert sales to numbers
         row_totals[store_name] = sum(sales)  # Sum up sales for the store
-    return row_totals """
+    return row_totals
 # Example Data
 sales_data = [
     ["Store Name", "Day 1", "Day 2", "Day 3"],  # Header row
     ["Store A", 5000, 7000, 6500],
     ["Store B", 8000, 6000, 7500]
 ] 
-""" totals = calcRow(sales_data)
+totals = calcRow(sales_data)
 print(totals) """
 
-def calcRowLC(data):
+""" def calcRowLC(data):
     row_totals = {row[0]: sum([int(x) for x in row[1:]]) for row in data[1:]}
     return row_totals
-print(calcRowLC(sales_data))
+print(calcRowLC(sales_data)) """
+
+# map final challenge
+temperatures = ["Label", 32, 50, 77, 104]
+converted = map(lambda x: (x - 32) * 5/9, temperatures[1:])
+print(list(converted))
