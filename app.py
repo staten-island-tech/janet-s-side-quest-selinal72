@@ -24,7 +24,13 @@ for row in data[1:]:
 print(avgs) """
 
 # 2) 
-
+avgs = []
+for row in data[1:]:
+    stores = row[0]
+    sales = list(map(int, row[1:]))
+    avg_sales = sum(sales) / len(sales)
+    avgs.append((stores, avg_sales))
+print(sorted(avgs, key=lambda x:x[1], reverse = True))
 
 # 3)
 """ avgs = []
@@ -37,22 +43,23 @@ for x in avgs:
 print(all_stores) """
 
 # 4) 
-avgs = []
+""" avgs = []
 danger = []
 below = 0
 all_stores = 0
+store_avg = []
 for row in data[1:]:
     stores = row[0]
     sales = list(map(int, row[1:]))
     avg_sales = sum(sales) / len(sales)
     avgs.append(avg_sales)
-    all_stores = sum(avgs) / len(avgs)
-    below = all_stores * 0.8
+    store_avg.append((stores, avg_sales))
+all_stores = sum(avgs) / len(avgs)
+below = all_stores * 0.8
 print("AVWERAGES")
 print(avgs)
 print(all_stores, below)
-for x in avgs:
-    print(x)
-    if x < below:
-        danger.append((stores, x))
-print(danger)
+for stores, avg in store_avg:
+    if avg < below:
+        danger.append((stores, avg))
+print(danger) """
